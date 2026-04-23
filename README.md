@@ -86,6 +86,27 @@ You can override API base URL:
 VITE_API_BASE_URL=http://localhost:4000
 ```
 
+## Frontend Deployment (GitHub Pages)
+
+1. Ensure backend is live at:
+   - `https://expense-tracker-jl1f.onrender.com`
+2. In `frontend`, create `.env.production`:
+   ```bash
+   VITE_API_BASE_URL=https://expense-tracker-jl1f.onrender.com
+   ```
+3. Build and deploy frontend:
+   ```bash
+   cd frontend
+   npm install
+   npm run deploy
+   ```
+4. In GitHub repo settings:
+   - Go to **Settings -> Pages**
+   - Source: **Deploy from a branch**
+   - Branch: `gh-pages`, folder `/ (root)`
+5. Open deployed site:
+   - `https://vasavi-22.github.io/Expense-tracker/`
+
 ## Automated Tests
 
 Backend integration tests:
