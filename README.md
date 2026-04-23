@@ -86,6 +86,20 @@ You can override API base URL:
 VITE_API_BASE_URL=http://localhost:4000
 ```
 
+## Automated Tests
+
+Backend integration tests:
+```bash
+cd backend
+npm test
+```
+
+Frontend unit tests:
+```bash
+cd frontend
+npm test
+```
+
 ## Reliability Notes
 
 - API is idempotent for retried creates when the same `Idempotency-Key` is sent.
