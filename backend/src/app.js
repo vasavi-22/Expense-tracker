@@ -12,6 +12,10 @@ export function buildApp() {
   app.use(express.json({ limit: "1mb" }));
   app.use(morgan("combined"));
 
+  app.get("/", (_req, res) => {
+    res.send("API is running");
+  });
+
   app.get("/health", (_req, res) => {
     res.json({ ok: true });
   });
