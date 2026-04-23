@@ -1,11 +1,17 @@
 import { createExpense, listExpenses } from "../db.js";
+import { validateCreateExpensePayload } from "../validation.js";
 
 export function createExpenseFromRequest(body, idempotencyKey) {
+  const validation = validateCreateExpensePayload(body);
+  if (!validation.ok) {
+    return {
+      status: 400,
+      body: { error: validation.error },
+    };
+  }
+
   const expense = createExpense({
-    amount: Number(body.amount),
-    category: String(body.category ?? ""),
-    description: String(body.description ?? ""),
-    date: String(body.date ?? ""),
+    ...validation.data,
     idempotencyKey,
   });
   return { status: 201, body: expense };

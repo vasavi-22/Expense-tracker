@@ -1,5 +1,7 @@
 export default function AddExpenseForm({
   form,
+  formError,
+  submitting,
   onFieldChange,
   onSubmit,
 }) {
@@ -30,7 +32,10 @@ export default function AddExpenseForm({
         Date
         <input name="date" type="date" required value={form.date} onChange={onFieldChange} />
       </label>
-      <button type="submit">Add Expense</button>
+      {formError && <p className="error">{formError}</p>}
+      <button type="submit" disabled={submitting}>
+        {submitting ? "Saving..." : "Add Expense"}
+      </button>
     </form>
   );
 }

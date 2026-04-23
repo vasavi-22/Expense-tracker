@@ -3,7 +3,6 @@ export default function ExpenseControls({
   sortByDate,
   onCategoryChange,
   onSortChange,
-  onRefresh,
 }) {
   return (
     <div className="controls">
@@ -15,7 +14,6 @@ export default function ExpenseControls({
         <input type="checkbox" checked={sortByDate} onChange={(event) => onSortChange(event.target.checked)} />
         Sort by newest date
       </label>
-      <button type="button" onClick={onRefresh}>Refresh</button>
     </div>
   );
 }

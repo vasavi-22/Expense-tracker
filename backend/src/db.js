@@ -83,7 +83,8 @@ export function listExpenses({ category, sort }) {
   let rows = store.expenses.slice();
 
   if (category) {
-    rows = rows.filter((row) => row.category === category);
+    const normalized = category.trim().toLowerCase();
+    rows = rows.filter((row) => row.category.toLowerCase().includes(normalized));
   }
 
   if (sort === "date") {
